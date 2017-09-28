@@ -1,0 +1,115 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+double logaritmo(double expo, double limite);
+double coseno(double expo, double limite);
+double seno(double expo, double limite);
+double fraccion(double n);
+double factorial(double n);
+double elevacion(double n);
+
+int main(int argc, const char * argv[]) {
+    double opc, expo, limite;
+    
+    cout << "CICLOS Y SERIES\nNOTA:PARA PODER SALIR PRESIONA EL NUMERO 0 \n";
+    do {
+    	cout<<"\n";
+        cout<<"Seleccione una opcion\n\n";
+        cout<<"Opcion1:Calcular Logaritmo Natural\n";
+        cout<<"Opcion2:Calcular Coseno\n";
+        cout<<"Opcion3:Calcular Seno\n";
+        cin>>opc;
+        if (opc==1)
+        {
+            cout<<"ingrese el numero y el exponente : \n";
+            cin>>expo>>limite;
+            logaritmo(expo,limite);
+            
+        }
+        else if (opc==2)
+        {
+            cout<<"ingrese el numero y el exponente: \n";
+            cin>>expo>>limite;
+            coseno(expo,limite);
+        }
+        else if (opc==3)
+        {
+            cout<<"ingrese el numero y el exponente: \n";
+            cin>>expo>>limite;
+            cout<<seno(expo,limite)<<" seno\n";
+            
+        }
+        else if (opc!=0)
+        {
+            cout<<"OPCION INCORRECTA\n";
+        }
+    } while (opc!=0);
+    return 0;
+}
+double logaritmo(double expo, double limite)
+{
+    double i;
+    double lg = 0.0, n= 1, ln;
+    for (i=1; i<=limite; i++)
+    {
+        ln = ((expo-1)/expo);
+        ln = pow(ln, n);
+        if(i>=2)
+        {
+            ln *= fraccion(i);
+        }
+        lg += ln;
+        n++;
+    }
+   cout<<"\n"<<lg<<"\n";
+    return 0;
+}
+double fraccion(double i)
+{
+    double fraccion=1, res=0;
+        res += fraccion/i;
+    
+    return res;
+}
+double coseno(double expo, double limite)
+{
+    int i, a = 0, signo = 1;
+   
+    double y = 0.0, x = 0.0;
+    for ( i=1; i<=limite; i++)
+    {
+        y = (pow(expo, a));
+        y /=  factorial(a);
+        a+=2;
+        y *= signo;
+        signo *= -1;
+        x += y;
+    }
+    cout<<"cos: "<<x<<"\n";
+    return 0;
+}
+double seno(double expo, double limite)
+{
+    double i, n=0, m=1, signo=1, e=0;
+    for (i =1; i<= limite; i++) {
+        n = pow(expo, m);
+        n /= factorial(m);
+        n *= signo;
+        signo *= -1;
+        e += n;
+        m+=2;
+    }
+    
+    
+    return e;
+}
+double factorial(double b)
+{
+    int n=1;
+    for (int a=b; a>0; a--)
+    {
+        n *=a;
+    }
+    return n;
+}
+
