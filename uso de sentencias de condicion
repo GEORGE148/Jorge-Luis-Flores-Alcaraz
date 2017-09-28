@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main()
+{
+	int HORAEN,MINUEN,SEGUEN,HORASA,MINSA,SEGUSA,RESTADEH,RESTADEM,RESTADES;
+	
+	cout<<"DEBES DE INGRESAR LAS HORAS EN FORMATOS DE 24 HORAS\n";
+	cout<<"\nHora de entrada:\n";
+	cout<<"HORA: ";
+	cin>>HORAEN;
+	cout<<"MINUTOS: ";
+	cin>>MINUEN;
+	cout<<"SEGUNDOS: ";
+	cin>>SEGUEN;
+	cout<<"\nSU HORA DE SALIDA ES:\n";
+	cout<<"HORAS: ";
+	cin>>HORASA;
+	cout<<"MINUTOS: ";
+	cin>>MINSA;
+	cout<<"SEGUNDOS: ";
+	cin>>SEGUSA;
+	RESTADEH=HORAEN-HORASA;
+	RESTADEM=MINUEN-MINSA;
+	RESTADES=SEGUEN-SEGUSA;
+		
+	if(RESTADEM>=60)
+	{
+		RESTADEH=abs(RESTADEH);
+		RESTADEH+=1;
+		RESTADEM=abs(RESTADEM);
+		RESTADEM-=60;	
+	}
+	if(RESTADES>=60)
+	{
+		RESTADEM=abs(RESTADEM);
+		RESTADEM+=1;
+		RESTADES=abs(RESTADES);
+		RESTADES-=60;	
+	}
+	RESTADEH=abs(RESTADEH);
+	RESTADEM=abs(RESTADEM);
+	RESTADES=abs(RESTADES);
+	cout<<"\nUSTED TRABAJO: "<<RESTADEH<<":HORAS "<<RESTADEM<<":MINUTOS "<<RESTADES<<":SEGUNDOS\n";
+	return 0;
+}
