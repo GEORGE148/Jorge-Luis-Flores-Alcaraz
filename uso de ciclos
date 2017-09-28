@@ -1,0 +1,109 @@
+	using namespace std;
+#include<iostream>
+#include<conio.h>
+#include<time.h>
+#include<stdlib.h>
+
+main()
+{
+	int Op=1, X=12,Y=13,Vec[10],i,Num,Mat[5][5],j,Fil[5],Col[5],c=0,t,s,a,b,factO=1,calificacion,suma,contador,promedio,end1;
+	;	
+	char ch;
+	bool p;
+	
+	do
+	{
+		system("cls");
+		if(Op==1)
+			cout<<"==>SALIR\n";
+		else
+			cout<<"   SALIR\n";
+		if(Op==2)
+			cout<<"==>Numeros primos\n";
+		else
+			cout<<"   Numeros primos\n";
+		if(Op==3)
+			cout<<"==>Numeros factoriales\n";
+		else
+			cout<<"   Numeros factoriales\n";
+		if(Op==4)
+			cout<<"==>Calificaciones\n";
+		else
+			cout<<"   Calificaciones\n";
+	
+		ch=getch();
+		if(ch==80)
+			{
+				Op++;
+				if(Op==5)
+					Op=1;
+			}
+		if(ch==72)
+			{
+				Op--;
+				if(Op==0)
+					Op=4;
+			}
+		if(ch==13)
+		{
+			system("cls");
+			switch(Op)
+			{
+				case 1:
+					exit(1);
+					break;
+				case 2:
+        			cout<<"Ingresa cualquier numero:"<<endl;
+         			cin>>s;
+           			for(t=1;t<(s+1);t++)
+				 	{
+           				if(s%t==0){
+            			 	c++;
+           				}
+                    }
+            		if(c!=2){
+              			cout<<"No es Primo";
+            		}
+					else
+					{
+                		cout<<"Si es Primo";
+         			}
+         			getch();
+					break;
+				case 3:
+					 printf("ESCRIBE EL NUMERO QUE TU QUIERES QUE SE CALCULE EL FACTORIAL\n");
+ 					 scanf("%d",&a);
+
+ 					 for (b=a;b>1;b--)
+					{
+    					factO=factO*b;
+					}
+  					printf("EL FACTORIAL DEL NUMERO ES %d = %d\n", a, factO);
+  					getch();
+  					break;
+				case 4:
+					cout<<"Ingresa tu calificacion y coloca el -1 para regresarte el resultado";
+					while(calificacion!=-1)
+					{
+						cout<<"\nIngresa la calificacion: ";
+						cin>>calificacion;
+						if(calificacion !=-1)
+						{
+							suma+=calificacion;
+							contador+=1;
+						}
+						else
+						{
+							promedio=suma/contador;
+							cout<<"tu promedio es:"<<promedio<<end1;
+						}
+					}
+					getch();
+					break;
+					exit(1);
+			}
+		}
+	}while(ch!=1000);
+}
+
+
