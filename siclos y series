@@ -1,0 +1,50 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+
+int main(int argc, char** argv) {
+	
+	double  e;
+int opc;
+cout<<"selecciona cualquiera de las 2 opciones";
+cout<<"\n\nopcion 1 exponente";
+cout<<"\n\nopcion 2 constante de un numero";
+cout<<"\n\n";
+cin>>opc;
+switch(opc)
+{
+case 1:
+cout<<"SELECCIONASTE LA OPCION DEL NUMERO 1: Determinar valor de e^x"<<endl;
+                  int x,i;
+                  cout<<"INGRESA UN NUMERO: ";
+                  cin>>x;
+                  cout<<"e^"<<x<<" = "<<exp(x)<<endl;
+                break;
+case 2:
+cout<<"SELECCIONASTE LA OPCION DEL NUMERO  2: valor de la constante"<<endl;
+          	      int a,n;
+          	      double fac,aprox;
+          	      cout<<"INGRESA UN VALOR PARA OBTENER OBTENER SU APROXIMACION: ";
+          	      cin>>a;
+          	      fac=1;
+          	      if(a<0) 
+					fac =0;
+                  else 
+				     if(a==0) 
+				     fac=1;
+  					 else
+					   {
+          	      for(n=1;n<=a;n++)
+			     {
+			  		fac*=n;
+			  		aprox+=a/fac;
+			     }
+					   }
+			    cout<<aprox<<endl;
+			    break;
+}
+			return 0;
+		
+}
+
